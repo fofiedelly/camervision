@@ -1,0 +1,24 @@
+{%  extends "::layout.html.twig" %}
+{%  block titre %}
+    {{  article.titre }} {{  parent() }}
+{% endblock %}
+{%  block slogan %}
+
+    <div class="box">
+        <div class="border-right">
+            <div class="border-left">
+                <div class="inner">
+                    <h3> <span>{{  article.titre }}</span></h3>
+
+
+                  <center>      <img src="{{ asset('images/banner-img.png') }}" /></center>
+
+                    <p>
+                    {{ article.contenu }}
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

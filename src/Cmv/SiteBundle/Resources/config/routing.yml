@@ -1,0 +1,18 @@
+cmv_site_home:
+    path:     /
+    defaults: { _controller: CmvSiteBundle:Site:index }
+cmv_site_tri:
+    pattern: /catalogue
+    defaults: { _controller: CmvSiteBundle:Site:tri }
+cmv_site_projets:
+    pattern: /projets
+    defaults: { _controller: CmvSiteBundle:Site:projets }
+cmv_site_actu:
+    pattern: /actualites
+    defaults: { _controller: CmvSiteBundle:Site:actu }
+cmv_site_contact:
+    pattern: /contacter
+    defaults: { _controller: CmvSiteBundle:Contact:contact }
+cmv_site_lire:
+    pattern: /lire
+    defaults: { _controller: CmvSiteBundle:Site:lire}

@@ -1,0 +1,52 @@
+{%  extends "::layout.html.twig" %}
+{%  block titre %} Accueil{{  parent() }}{%  endblock %}
+
+{%  block contentTop %}
+<div class="box">
+    <div class="border-right">
+        <div class="border-left">
+            <div class="inner">
+    <h3>Bienvenu sur <b>Camer</b><span>Vision</span></h3>
+    <p>
+        {%  if accueil is defined  %}
+            {{  accueil.description }}
+            {% else %}
+            Aucun contenu!!
+                {%  endif %}
+    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{%  endblock %}
+{%  block content %}
+    <h3><span>Nos derniers films & Documentaires</span></h3>
+   {%  if accueil is defined  %}
+    <ul class="movies">
+        <li>
+            <h4>{{  accueil.film1Titre }}</h4>
+            <iframe width="212" height="170" src="//www.youtube.com/embed/35XaOonECy4" frameborder="0"></iframe>
+            <p>{{  accueil.film1Description }}</p>
+            <div class="wrapper"><a href="#" class="link2"><span><span>Lire la suite</span></span></a></div>
+        </li>
+        <li>
+            <h4>{{  accueil.film1Titre }}</h4>
+            <iframe width="212" height="170" src="//www.youtube.com/embed/cM5shXe1UMs" frameborder="0"></iframe>
+
+            <p>{{  accueil.film1Description }}</p>
+            <div class="wrapper"><a href="#" class="link2"><span><span>Lire la suite</span></span></a></div>
+        </li>
+        <li class="last">
+            <h4>{{  accueil.film1Titre }}</h4>
+            <iframe width="212" height="170" src="//www.youtube.com/embed/7gH8-Q9J5pw" frameborder="0"></iframe>
+            <p>{{  accueil.film1Description }}</p>
+            <div class="wrapper"><a href="#" class="link2"><span><span>Lire la suite</span></span></a></div>
+        </li>
+
+        <li class="clear">&nbsp;</li>
+    </ul>
+       {%  else %}
+           Aucun film ajoute!!
+           {% endif %}
+
+{%  endblock %}
