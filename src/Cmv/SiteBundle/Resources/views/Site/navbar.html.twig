@@ -1,0 +1,15 @@
+<li><a href="{{  path('cmv_site_home') }}"
+       class="{% if app.request.attributes.get('_route')=='cmv_site_home' %}active{%  endif %}">
+        Home</a></li>
+<li><a href="{{  path('cmv_site_tri') }}"
+       class="{% if app.request.attributes.get('_route')=='cmv_site_tri' %}active{%  endif %}"
+            >Films & Docs</a></li>
+<li><a href="{{  path('cmv_site_projets') }}"
+       class="{% if app.request.attributes.get('_route')=='cmv_site_projets' %}active{%  endif %}"
+            >Clips videos</a></li>
+<li><a href="{{  path('cmv_site_actu') }}"
+       class="{% if app.request.attributes.get('_route')=='cmv_site_actu' %}active{%  endif %}"
+            >Actualites</a></li>
+<li class="last"><a href="{{  path('cmv_site_contact') }}"
+                    class="{% if app.request.attributes.get('_route')=='cmv_site_contact' %}active{%  endif %}"
+            >Contactez-nous</a></li>

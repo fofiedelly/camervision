@@ -1,0 +1,12 @@
+parameters:
+#    cmv_user.example.class: Cmv\UserBundle\Example
+
+services:
+    cmv_site.contact.manager:
+        class: Cmv\SiteBundle\Services\ContactManager
+        arguments:
+            - @mailer
+            - @doctrine
+
+        tags:
+            - { name: cmv.contact.manager }

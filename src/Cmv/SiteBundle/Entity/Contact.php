@@ -3,6 +3,7 @@
 namespace Cmv\SiteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Contact
@@ -25,6 +26,10 @@ class Contact
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255)
+     * @Assert\Length(min="5",max="255",
+     * minMessage="Votre nom doit faire {{ limit }}  caracteres minimum",
+     * maxMessage="Votre nom doit faire au plus {{ limit}} caracteres "
+     * )
      */
     private $nom;
 
@@ -32,6 +37,7 @@ class Contact
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255)
+     * @Assert\Email(message="{{ value }} n'est pas une adresse email valide", checkMX =true)
      */
     private $email;
 
@@ -46,9 +52,13 @@ class Contact
      * @var string
      *
      * @ORM\Column(name="message", type="text")
+     * @Assert\NotBlank(message="Votre message ne peut pas etre vide")
      */
     private $message;
-
+    /**
+     * @ORM\Column(name="telephone", type="string", length=14)
+     */
+    private $telephone;
 
     /**
      * Get id
@@ -150,5 +160,28 @@ class Contact
     public function getMessage()
     {
         return $this->message;
+    }
+
+    /**
+     * Set telephone
+     *
+     * @param string $telephone
+     * @return Contact
+     */
+    public function setTelephone($telephone)
+    {
+        $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    /**
+     * Get telephone
+     *
+     * @return string 
+     */
+    public function getTelephone()
+    {
+        return $this->telephone;
     }
 }

@@ -25,22 +25,22 @@
     <ul class="movies">
         <li>
             <h4>{{  accueil.film1Titre }}</h4>
-            <iframe width="212" height="170" src="//www.youtube.com/embed/35XaOonECy4" frameborder="0"></iframe>
+            <iframe width="212" height="170" src="//www.youtube.com/embed/{{  accueil.film1Lien }}" frameborder="0"></iframe>
             <p>{{  accueil.film1Description }}</p>
-            <div class="wrapper"><a href="#" class="link2"><span><span>Lire la suite</span></span></a></div>
+            <div class="wrapper"><a href="{{ path('cmv_site_lire',{'code':accueil.film1LienArticle.code}) }}" class="link2"><span><span>Lire la suite</span></span></a></div>
         </li>
         <li>
-            <h4>{{  accueil.film1Titre }}</h4>
-            <iframe width="212" height="170" src="//www.youtube.com/embed/cM5shXe1UMs" frameborder="0"></iframe>
+            <h4>{{  accueil.film2Titre }}</h4>
+            <iframe width="212" height="170" src="//www.youtube.com/embed/{{  accueil.film2Lien }}" frameborder="0"></iframe>
 
-            <p>{{  accueil.film1Description }}</p>
-            <div class="wrapper"><a href="#" class="link2"><span><span>Lire la suite</span></span></a></div>
+            <p>{{  accueil.film2Description }}</p>
+            <div class="wrapper"><a href="{{ path('cmv_site_lire',{'code':accueil.film2LienArticle.code}) }}" class="link2"><span><span>Lire la suite</span></span></a></div>
         </li>
         <li class="last">
-            <h4>{{  accueil.film1Titre }}</h4>
-            <iframe width="212" height="170" src="//www.youtube.com/embed/7gH8-Q9J5pw" frameborder="0"></iframe>
-            <p>{{  accueil.film1Description }}</p>
-            <div class="wrapper"><a href="#" class="link2"><span><span>Lire la suite</span></span></a></div>
+            <h4>{{  accueil.film3Titre }}</h4>
+            <iframe width="212" height="170" src="//www.youtube.com/embed/{{  accueil.film3Lien }}" frameborder="0"></iframe>
+            <p>{{  accueil.film3Description }}</p>
+            <div class="wrapper"><a href="{{ path('cmv_site_lire',{'code':accueil.film3LienArticle.code}) }}" class="link2"><span><span>Lire la suite</span></span></a></div>
         </li>
 
         <li class="clear">&nbsp;</li>

@@ -2,17 +2,17 @@ cmv_site_home:
     path:     /
     defaults: { _controller: CmvSiteBundle:Site:index }
 cmv_site_tri:
-    pattern: /catalogue
+    pattern: /films-et-documentaires.html
     defaults: { _controller: CmvSiteBundle:Site:tri }
 cmv_site_projets:
-    pattern: /projets
-    defaults: { _controller: CmvSiteBundle:Site:projets }
+    pattern: /clips-videos.html
+    defaults: { _controller: CmvSiteBundle:Site:clips }
 cmv_site_actu:
-    pattern: /actualites
+    pattern: /actualites.html
     defaults: { _controller: CmvSiteBundle:Site:actu }
 cmv_site_contact:
-    pattern: /contacter
+    pattern: /contacter.html
     defaults: { _controller: CmvSiteBundle:Contact:contact }
 cmv_site_lire:
-    pattern: /lire
-    defaults: { _controller: CmvSiteBundle:Site:lire}
+    pattern: /lire/{code}.html
+    defaults: { _controller: CmvSiteBundle:Site:lire, code:0}

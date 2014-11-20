@@ -12,4 +12,49 @@ use Doctrine\ORM\EntityRepository;
  */
 class ArticleRepository extends EntityRepository
 {
+    public function getFilmsDocs(){
+        $qb=$this->_em->createQueryBuilder();
+        $qb->select('a')
+            ->from('CmvSiteBundle:Article','a')
+            ->leftJoin('a.categorie','categorie')
+            ->addSelect('categorie')
+            ->leftJoin('categorie.categorieParent','categorieParent')
+            ->addSelect('categorieParent')
+            ->orderBy('a.dateSave','DESC')
+            ->where('categorie in (1,4,5)')
+
+
+            ;
+        return $qb->getQuery()->getResult();
+    }
+    public function getClipsVideos(){
+        $qb=$this->_em->createQueryBuilder();
+        $qb->select('a')
+            ->from('CmvSiteBundle:Article','a')
+            ->leftJoin('a.categorie','categorie')
+            ->addSelect('categorie')
+            ->leftJoin('categorie.categorieParent','categorieParent')
+            ->addSelect('categorieParent')
+            ->orderBy('a.dateSave','DESC')
+            ->where('categorie = 3')
+
+
+        ;
+        return $qb->getQuery()->getResult();
+    }
+    public function getActu(){
+        $qb=$this->_em->createQueryBuilder();
+        $qb->select('a')
+            ->from('CmvSiteBundle:Article','a')
+            ->leftJoin('a.categorie','categorie')
+            ->addSelect('categorie')
+            ->leftJoin('categorie.categorieParent','categorieParent')
+            ->addSelect('categorieParent')
+            ->orderBy('a.dateSave','DESC')
+            ->where('categorie = 6')
+
+
+        ;
+        return $qb->getQuery()->getResult();
+    }
 }

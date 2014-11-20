@@ -10,8 +10,21 @@
                 <div class="inner">
                     <h3> <span>{{  article.titre }}</span></h3>
 
+                    {% if article.codeYoutube is not null %}
 
-                  <center>      <img src="{{ asset('images/banner-img.png') }}" /></center>
+                  <center>    <iframe width="572" height="348" src="//www.youtube.com/embed/{{  article.codeYoutube }}" frameborder="0"></iframe></center></center>
+
+                        {% else %}
+                            {%  if article.image is not null %}
+                                {% for image in article.image %}
+                                    {% if loop.last %}
+                                   <center>     <img src="{% path image.image, 'big' %}" width="572" height="348"/></center>
+                                    {% endif %} <!-- endif loop.last -->
+                                {% endfor %}
+                            {% else %}
+
+                            {% endif %}
+                    {% endif %}
 
                     <p>
                     {{ article.contenu }}

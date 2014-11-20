@@ -2,6 +2,3 @@ parameters:
 #    cmv_site.example.class: Cmv\SiteBundle\Example
 
 services:
-#    cmv_site.example:
-#        class: %cmv_site.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]

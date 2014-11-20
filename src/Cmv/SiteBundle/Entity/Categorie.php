@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Categorie
  *
- * @ORM\Table()
+ * @ORM\Table(name="categorie")
  * @ORM\Entity(repositoryClass="Cmv\SiteBundle\Entity\CategorieRepository")
  */
 class Categorie
@@ -21,7 +21,7 @@ class Categorie
      */
     private $id;
     /**
-     * @ORM\Column(name="code", type="integer", unique=true)
+     * @ORM\Column(name="code",  type="string",length=255, unique=true)
      */
     private $code;
     /**

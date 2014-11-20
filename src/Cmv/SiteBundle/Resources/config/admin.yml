@@ -1,0 +1,52 @@
+services:
+    sonata.admin.accueil:
+        class: Cmv\SiteBundle\Admin\AccueilAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Contenu du site", label: "Page d'accueil" }
+        arguments:
+            - ~
+            - Cmv\SiteBundle\Entity\Accueil
+            - ~
+        calls:
+            - [ setTranslationDomain, [SonataAdminBundle] ]
+    sonata.admin.categorieParent:
+        class: Cmv\SiteBundle\Admin\CategorieParentAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Categories de Contenu", label: "Les super Categories" }
+        arguments:
+            - ~
+            - Cmv\SiteBundle\Entity\CategorieParent
+            - ~
+        calls:
+           - [setTranslationDomain, [SonataAdminBundle]]
+    sonata.admin.categorie:
+        class: Cmv\SiteBundle\Admin\CategorieAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Categories de Contenu" , label: "Les sous categories" }
+        arguments:
+            - ~
+            - Cmv\SiteBundle\Entity\Categorie
+            - ~
+        calls:
+            - [setTranslationDomain, [SontaAdminBundle]]
+    sonata.admin.article:
+        class: Cmv\SiteBundle\Admin\ArticleAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Contenu du site", label:" Articles"}
+        arguments:
+            - ~
+            - Cmv\SiteBundle\Entity\Article
+            - ~
+        calls:
+            - [ setTranslationDomain, [SonataAdminBundle]]
+    sonata.admin.contact:
+        class: Cmv\SiteBundle\Admin\ContactAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Messages de contact", label: "Messages de contacts" }
+        arguments:
+            - ~
+            - Cmv\SiteBundle\Entity\Contact
+            - ~
+        calls:
+            - [ setTranslationDomain, [SonataAdminBundle]]
+

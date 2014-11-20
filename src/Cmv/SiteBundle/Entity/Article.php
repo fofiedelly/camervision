@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Article
  *
- * @ORM\Table()
+ * @ORM\Table(name="article")
  * @ORM\Entity(repositoryClass="Cmv\SiteBundle\Entity\ArticleRepository")
  */
 class Article
@@ -21,7 +21,7 @@ class Article
      */
     private $id;
     /**
-     * @ORM\Column(name="code", type="integer", unique=true)
+     * @ORM\Column(name="code", type="string",length=255, unique=true)
      */
     private $code;
     /**
@@ -58,9 +58,15 @@ class Article
      */
     private $codeYoutube;
     /**
-     * @ORM\Column(name="dateSave", type="datatime", nullable=false)
+     * @ORM\Column(name="dateSave", type="datetime", nullable=false)
      */
     private $dateSave;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Image",cascade={"persist"})
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $image;
 
     public function __construct(){
         $this->dateSave=new \DateTime();
@@ -194,10 +200,10 @@ class Article
     /**
      * Set dateSave
      *
-     * @param \datatime $dateSave
+     * @param \datetime $dateSave
      * @return Article
      */
-    public function setDateSave(\datatime $dateSave)
+    public function setDateSave(\datetime $dateSave)
     {
         $this->dateSave = $dateSave;
 
@@ -207,7 +213,7 @@ class Article
     /**
      * Get dateSave
      *
-     * @return \datatime 
+     * @return \datetime
      */
     public function getDateSave()
     {
@@ -258,5 +264,51 @@ class Article
     public function getCodeYoutube()
     {
         return $this->codeYoutube;
+    }
+
+    /**
+     * Set image
+     *
+     * @param \Cmv\SiteBundle\Entity\Image $image
+     * @return Article
+     */
+    public function setImage(\Cmv\SiteBundle\Entity\Image $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \Cmv\SiteBundle\Entity\Image 
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Add image
+     *
+     * @param \Cmv\SiteBundle\Entity\Image $image
+     * @return Article
+     */
+    public function addImage(\Cmv\SiteBundle\Entity\Image $image)
+    {
+        $this->image[] = $image;
+
+        return $this;
+    }
+
+    /**
+     * Remove image
+     *
+     * @param \Cmv\SiteBundle\Entity\Image $image
+     */
+    public function removeImage(\Cmv\SiteBundle\Entity\Image $image)
+    {
+        $this->image->removeElement($image);
     }
 }

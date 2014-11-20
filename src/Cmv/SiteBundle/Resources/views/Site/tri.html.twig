@@ -1,7 +1,7 @@
 {%  extends "::layout.html.twig" %}
 {%  block titre %}
-    {% if cat is defined %}
-        cat.nom
+    {% if mot1 is defined %}
+       {{ mot1 }} {{ mot2 }}
         {% else %}
         Mes articles
             {% endif %}
@@ -25,20 +25,36 @@
 
 {%  block content %}
 
-
-
     {% if articles is defined %}
         <h3>{{ mot1 }} & <span>{{  mot2 }}</span></h3>
         <ul class="list">
       {%  for article in articles %}
           <li>
-              <img src="{{  asset('images/3page-img1.jpg') }}" alt=""/>
-              <a href="{{ path('cmv_site_lire') }}">{{  article.titre }}</a>
+              {% if article.codeYoutube is not null %}
+              <iframe width="212" height="170" src="//www.youtube.com/embed/{{ article.codeYoutube}}" frameborder="0"
+                      style="float:left;margin-right:2em;"></iframe>
+              {% else %}
+                  {%  if article.image is not null %}
+                      {% for image in article.image %}
+                          {% if loop.last %}
+                              <img src="{% path image.image, 'reference' %}" width="212" height="170"/>
+                              {% endif %} <!-- endif loop.last -->
+                          {% endfor %}
+                      {% else %}
+
+                      {% endif %}
+              {% endif %}
+              <div style="margin-top:1em;">
+              <a href="{{ path('cmv_site_lire',{'code':article.code}) }}">{{  article.titre }}</a>
               <br/>
               {{  article.description }}
               <br />
-              <center><span class="center-block"> <i><a href="#">Lire la suite . . .</a></i>&nbsp;</span></center>
+              <center><span style="float:left;color:white;" >Le {{  article.dateSave|date('d.m.Y') }}</span>
+                  <span class="center-block"> <i><a href="{{ path('cmv_site_lire',{'code':article.code}) }}">Lire la suite . . .</a></i>&nbsp;</span>
+              </center>
+                  </div>
           </li>
+
           {% endfor %}
         </ul>
     {% else %}
